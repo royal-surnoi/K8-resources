@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: mulit-cot
+  namespace: roboshop
+  labels: 
+    name: demo-label
+  annotation: 
+    com.royalreddy.co.in: "120"
+    jenkins.url: "https://jenkins.co.in/roboshop/catalogue#45"
+spec:
+  containers:
+  - name: nginx-web
+    image: nginx
+    ports:  
+    - containerPort: 80
+  # multicontainer
+  - name: almalinux
+    image: almalinux:8
+    command: ["sleep","1000"]
