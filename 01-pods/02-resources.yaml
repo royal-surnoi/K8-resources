@@ -1,5 +1,5 @@
 # we restrict resources consumed by container
-api: v1
+apiVersion: v1
 kind: Pod
 metadata:
   name: robo-pod
