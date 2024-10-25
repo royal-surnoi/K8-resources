@@ -30,6 +30,63 @@ spec:
       image: jenkins/jenkins
 	  ports:
 	  - containerPort: 8080
-	 
+--------------
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: configMaps-demo
+data:
+  DATABASE_HOST: "sample_db"
+  DATABASE_PORT: "5432"
+---------------
+apiVersion: v1 
+kind: Pod
+metadata:
+	name: pod-config-demo
+	namespace: namespace-demo
+spec:
+	containers:
+	- name: pod-config-demo
+	  image: nginx 
+	  ports:
+	  - containerPort: 82
+    env:
+      - name: DATABASE_HOST
+        valueFrom:
+          configMapKey:
+            name: configMaps-demo
+            key: DATABASE_HOST
+      - name: DATABASE_PORT
+        valueFrom:
+          configMapKey:
+            name: configMaps-demo
+            key: DATABASE_PORT
+----------------
+apiVersion: v1
+kind: Secret
+metadata: 
+  name: secret-demo
+type: Opaque
+data:
+  username: YWRtaW4=
+  DATABASE_PORT: YWRtaW4xMjM=
+-----------------
+apiVersion: v1 
+kind: Pod
+metadata:
+	name: pod-secret-demo
+	namespace: namespace-demo
+spec:
+	containers:
+	- name: pod-secret-demo
+	  image: nginx 
+	  ports:
+	  - containerPort: 83
+    envFrom:
+    - secretRef:
+        name: secret-demo
+    
+          
+
 	  
 	
