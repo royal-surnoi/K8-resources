@@ -3,5 +3,7 @@ kind: ConfigMap
 metadata:
   name: config-demo
 data:
-  dbname: "sample-db"
-  password: "admin123"
+  DATABASE_HOST: "sample-db"
+  DATABASE_PORT: "5432"
+  # APP_ENV: "production"
+  # LOG_LEVEL: "INFO"
