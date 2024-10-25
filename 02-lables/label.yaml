@@ -3,8 +3,6 @@ kind: Pod
 metadata: 
   name: mulit-cot
   namespace: roboshop
-  labels: 
-    name: demo-label
 spec:
   containers:
   - name: nginx-web
