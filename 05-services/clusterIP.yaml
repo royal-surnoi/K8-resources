@@ -21,6 +21,6 @@ spec:
     app: nginx  
     demo: service
   ports:
-  - protcol: TCP
+  - protocol: TCP
     port: 80
     targetPort: 80 
