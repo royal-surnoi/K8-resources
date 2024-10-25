@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: nginx
+  name: nginx-rs
   labels:
     app: nginx
-    tier: demo
+    tier: frontend
 spec:
   # modify replicas according to your case
   replicas: 3
-  selector:
+  selector: # replica-set labels
     matchLabels:
       app: nginx
-      tier: demo
-  template:
+      tier: frontend
+  template: # pod-definition
     metadata:
       labels:
         app: nginx
-        tier: demo
+        tier: frontend
     spec:
       containers:
-      - name: nginx-demo
-        image: nginx
+      - name: nginx
+        image: nginx:mainline-alpine3.18-perl
