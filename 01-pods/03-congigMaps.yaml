@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config-demo
+data:
+  dbname: "sample-db"
+  password: "admin123"
