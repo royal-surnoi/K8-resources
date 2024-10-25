@@ -18,9 +18,9 @@ metadata:
   name: service-demo
 spec:
   selector: 
-    app: nginx
+    app: nginx  
     demo: service
   ports:
-    - protcol: TCP
-      port: 80
-      targetPort: 80 
+  - protcol: TCP
+    port: 80
+    targetPort: 80 
