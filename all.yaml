@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
 	name: namespace-demo
----------
+
 apiVersion: v1 
 kind: Pod
 metadata:
@@ -14,7 +14,7 @@ spec:
 	  image: nginx 
 	  ports:
 	  - containerPort: 80
-------------
+
 apiVersion: v1 
 kind: Pod 
 metadata: 
@@ -30,7 +30,7 @@ spec:
       image: jenkins/jenkins
 	  ports:
 	  - containerPort: 8080
---------------
+
 apiVersion: v1
 kind: ConfigMap
 metadata: 
@@ -38,7 +38,7 @@ metadata:
 data:
   DATABASE_HOST: "sample_db"
   DATABASE_PORT: "5432"
----------------
+
 apiVersion: v1 
 kind: Pod
 metadata:
@@ -61,7 +61,7 @@ spec:
           configMapKey:
             name: configMaps-demo
             key: DATABASE_PORT
-----------------
+
 apiVersion: v1
 kind: Secret
 metadata: 
@@ -70,7 +70,7 @@ type: Opaque
 data:
   username: YWRtaW4=
   DATABASE_PORT: YWRtaW4xMjM=
------------------
+
 apiVersion: v1 
 kind: Pod
 metadata:
