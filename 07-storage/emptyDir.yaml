@@ -12,13 +12,13 @@ data:
           path: /usr/share/filebeat/modules.d/*.yml
           reload:
             enabled: true
-      modules:
+      modules: # input here we are saying that from where take logs 
       - module: nginx
         access:
           var.paths: ["/var/log/nginx/access.log*"]
         error:
           var.paths: ["/var/log/nginx/error.log*"]
-    output:
+    output: # outpu where store logs
       elasticsearch:
         hosts: ["elasticsearch:9200"]
 ---
@@ -47,23 +47,26 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: nginx-logs
-          mountPath: /var/log/nginx
-      - name: filebeat-sidecar
+        - name: nginx-logs 
+          mountPath: /var/log/nginx # where we are mounting , same volume to side car also
+      - name: filebeat-sidecar # side car 
         image: docker.elastic.co/beats/filebeat:7.17.3
         volumeMounts:
         - name: nginx-logs
-          mountPath: /var/log/nginx
+          mountPath: /var/log/nginx # where we are mounting 
         - name: filebeat-config
           mountPath: /usr/share/filebeat/filebeat.yml
           subPath: filebeat.yml
 
-      volumes:
+      volumes: # created volume
       - name: nginx-logs
         emptyDir: {}
-      - name: filebeat-config
+      - name: filebeat-config 
         configMap:
             name: filebeat-config
             items:
               - key: filebeat.yml
                 path: filebeat.yml
+
+# kubectl logs  nginx-deployment-6976cd7785-d96n7 -c filebeat-sidecar -- bash
+# execute this command
