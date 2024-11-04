@@ -52,7 +52,6 @@ metadata:
 spec:
   type: LoadBalancer
   selector: 
-    app: nginx  
     demo: ebs-static
   ports:
   - protocol: TCP
