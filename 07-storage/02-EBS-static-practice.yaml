@@ -41,7 +41,7 @@ spec:
   nodeSelector:
     zone: 1d
   volumes:
-  - name: persistent-storage
+  - name: nginx-data
     persistentVolumeClaim:
       claimName: ebs-static-claim
 ---
