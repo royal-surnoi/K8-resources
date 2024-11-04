@@ -13,7 +13,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app
+  name: app-nginx
   labels: 
     demo: ebs-dynamic
 spec:
