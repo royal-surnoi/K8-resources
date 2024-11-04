@@ -53,8 +53,6 @@ spec:
   type: LoadBalancer
   selector: 
     name: app
-    labels: 
-      demo: ebs-static-provision
   ports:
   - protocol: TCP
     port: 80
