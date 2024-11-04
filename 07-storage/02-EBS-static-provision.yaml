@@ -39,12 +39,11 @@ spec:
     - name: nginx-data
       mountPath: /usr/share/nginx/html
   nodeSelector:
-    zone: 1a
+    zone: 1c
   volumes:
   - name: nginx-data
     persistentVolumeClaim:
       claimName: ebs-static-provision
-  
 ---
 apiVersion: v1
 kind: Service
