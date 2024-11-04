@@ -33,11 +33,11 @@ metadata:
     demo: ebs-static-provision
 spec:
   containers:
-  - name: app
+  - name: nginx
     image: nginx
     volumeMounts:
     - name: nginx-data
-      mountPath: /usr/share/nginx/html/
+      mountPath: /usr/share/nginx/html
   nodeSelector:
     zone: 1a
   volumes:
@@ -53,7 +53,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector: 
-    name: app
+    demo: ebs-static-provision
   ports:
   - protocol: TCP
     port: 80
