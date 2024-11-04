@@ -6,11 +6,11 @@ spec:
   accessModes:
   - ReadWriteOnce
   capacity:
-    storage: 10Gi
+    storage: 20gi
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-0420d4f9b4dd23145
+    volumeHandle: vol-06aa7b360b81a41ab
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -39,7 +39,7 @@ spec:
     - name: nginx-data
       mountPath: /usr/share/nginx/html
   nodeSelector:
-    zone: 1c
+    zone: 1f
   volumes:
   - name: nginx-data
     persistentVolumeClaim:
