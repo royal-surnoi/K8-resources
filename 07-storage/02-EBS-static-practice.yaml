@@ -15,10 +15,10 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-static-claim
+  name: ebs-static
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
-  volumeName: ebs-static-claim
+  volumeName: ebs-static
   accessModes:
     - ReadWriteOnce
   resources:
@@ -43,7 +43,7 @@ spec:
   volumes:
   - name: nginx-data
     persistentVolumeClaim:
-      claimName: ebs-static-claim
+      claimName: ebs-static
 ---
 apiVersion: v1
 kind: Service
