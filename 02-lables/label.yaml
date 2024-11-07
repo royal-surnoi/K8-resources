@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata: 
   name: mulit-pod
-  namespace: roboshop
+  # namespace: roboshop
 spec:
   containers:
   - name: nginx-web
